@@ -1,0 +1,6 @@
+set formatoptions-=cro
+autocmd FileType javascript set formatprg=./node_modules/.bin/prettier-eslint\ --stdin
+
+nnoremap <Leader>p gggqG
+
+colorscheme desert

@@ -1,0 +1,19 @@
+
+" Start my plugins
+Plug 'w0rp/ale'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
+Plug 'Valloric/YouCompleteMe'
+Plug 'danro/rename.vim'
+Plug 'mxw/vim-jsx'
+Plug 'vim-utils/vim-line'
+
+Plug 'flowtype/vim-flow', {
+     \  'autoload': {
+     \     'filetypes': ['javascript', 'jsx']
+     \  }
+     \}
+
+let g:ale_linters = {
+      \ 'javascript': ['eslint']
+      \}
