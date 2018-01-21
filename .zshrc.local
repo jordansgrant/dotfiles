@@ -1,0 +1,12 @@
+source /home/jordan/zshrc.sh
+GIT_PROMPT_EXECUTABLE="haskell"
+precmd() { myprompt; }
+
+myprompt() {
+  
+  EXIT=$?
+  
+  PROMPT="%{$fg[cyan]%}%{%B%m%G%} %{$fg[yellow]%}%{%~%b%G%}$(git_super_status) 
+ $(prompt_return_value $EXIT)%{$reset_color%}  $ "
+
+}
