@@ -1,8 +1,0 @@
-# return colored prompt values for last returned function
-prompt_return_value() {
-  if (( $1 == 0 )); then
-    echo "%{$fg_bold[green]%}%{✔%G%}"
-  else
-    echo "%{$fg[red]%}%{$?✖%G%}"
-  fi
-}

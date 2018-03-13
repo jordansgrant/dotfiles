@@ -1,0 +1,22 @@
+# return colored prompt values for last returned function
+prompt_return_value() {
+  if (( $1 == 0 )); then
+    echo "%{$fg_bold[green]%}%{✔%G%}"
+  else
+    echo "%{$fg[red]%}%{$?✖%G%}"
+  fi
+}
+
+myprompt() {
+  EXIT=$?
+  PROMPT="%{$fg[cyan]%}%{%B%m%G%} %{$fg[yellow]%}%{%~%b%G%}$(git_super_status) 
+ $(prompt_return_value $EXIT)%{$reset_color%}  $ "
+}
+
+export GOPATH="$HOME/Documents/Go/"
+export PATH="$PATH:$GOPATH/bin"
+
+source /home/jordan/zshrc.sh
+GIT_PROMPT_EXECUTABLE="haskell"
+precmd() { myprompt; }
+
