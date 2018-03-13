@@ -6,4 +6,4 @@ stow -t $HOME tmux
 stow -t $HOME zsh
 stow -t "$HOME/bin" bin
 
-ln -f -s '.tool-versions' $HOME
+ln -f -s "${0:a:h}/.tool-versions" $HOME
