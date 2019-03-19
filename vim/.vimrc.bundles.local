@@ -1,6 +1,5 @@
 
 " Start my plugins
-Plug 'w0rp/ale'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 Plug 'Valloric/YouCompleteMe'
@@ -13,16 +12,21 @@ Plug 'ElmCast/elm-vim'
 
 let g:jsx_ext_required = 0
 
-" Plug 'flowtype/vim-flow', {
-"      \  'autoload': {
-"      \     'filetypes': ['javascript', 'jsx']
-"      \  }
-"      \}
-
-let g:ale_linters = {
-      \ 'javascript': ['eslint']
-      \}
+Plug 'flowtype/vim-flow', {
+     \ 'autoload': {
+     \     'filetypes': 'javascript'
+     \ },
+     \ 'build': {
+     \     'mac': 'npm install -g flow-bin',
+     \     'unix': 'npm install -g flow-bin'
+     \ }}
 
 let g:ycm_semantic_triggers = {
      \ 'elm' : ['.'],
      \}
+
+let g:ycm_filter_diagnostics = {
+  \ "javascript": {
+  \      "regex": [ "ts file", "'=' expected.", "';' expected."],
+  \    }
+  \ }

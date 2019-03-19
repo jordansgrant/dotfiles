@@ -15,8 +15,13 @@ myprompt() {
 
 export GOPATH="$HOME/Documents/Go/"
 export PATH="$PATH:$GOPATH/bin"
+export PATH="$PATH:$HOME/.local/bin"
 
-source /home/jordan/zshrc.sh
-GIT_PROMPT_EXECUTABLE="haskell"
-precmd() { myprompt; }
+autoload -Uz compinit && compinit
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/completions/asdf.bash
 
+
+fpath+=($HOME/.zsh/zsh-efgit-prompt)
+autoload -Uz promptinit && promptinit
+prompt efgit

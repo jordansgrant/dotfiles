@@ -5,13 +5,3 @@ alias timestamp="date -d \"today\" +\"%Y%m%d%H%M\""
 # Docker
 alias dc="docker-compose"
 alias dcr="docker-compose run"
-
-#rat
-
-alias ll='ls -al'
-alias tigs='git rat status'
-
-# alias t='tree -L 1'
-# alias tt='tree -L 2'
-# alias ttt='tree -L 3'
-
