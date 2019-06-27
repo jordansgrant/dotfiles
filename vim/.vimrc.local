@@ -8,11 +8,12 @@ let g:javascript_plugin_flow = 1
 
 let g:ale_linters = {
   \  'javascript': ['eslint', 'flow'],
-  \  'typescript': ['eslint'],
+  \  'typescript': ['tslint', 'tsserver'],
   \}
 
 let g:ale_fixers = {
-    \ 'javascript': ['prettier']
+    \ 'javascript': ['prettier'],
+    \ 'typescript': ['prettier']
   \}
 
 let g:ale_close_preview_on_insert = 1
@@ -31,3 +32,6 @@ let g:ale_statusline_format = [
       \ g:ale_echo_msg_error_str . ' %d',
       \ g:ale_echo_msg_warning_str . ' %d',
       \ nr2char(0xf4a1) . '  ']
+
+nnoremap <leader>t :ALEHover<CR>
+nnoremap <leader>d :ALEGoToDefinition<CR>

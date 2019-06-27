@@ -23,4 +23,3 @@ esac
 if [[ $( git stash list --grep=$UUID | wc -c ) -ne 0 ]]; then
   git stash pop > /dev/null 2>&1
 fi
-
