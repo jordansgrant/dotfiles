@@ -28,8 +28,8 @@ ethernet _first_ {
 
 battery 0 {
   status_chr = ⚡
-  status_full = 👍
-  status_bat = 🔋
+  status_full = 
+  status_bat = 
   status_unk = ?
 
   last_full_capacity = true
