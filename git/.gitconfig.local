@@ -3,3 +3,42 @@
 	name = jordansgrant
 [url "git@github.com:"]
 	insteadOf = https://github.com/
+[alias]
+	ss = "status -s"
+	sh = "stash"
+	sk = "stash --keep-index"
+	sp = "stash pop"
+	c = "commit"
+	l = log -20 --graph --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	ll = log -40 --graph --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	lll = log -60 --graph --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	llll = log --graph --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	f = fetch
+	fa = fetch --all
+	r = reset
+	rs = reset --soft
+	b = branch
+	ba = branch -a
+	br = branch -r
+	bb = branch -vv
+	co = checkout
+	ci = commit
+	cp = cherry-pick
+	cpa = cherry-pick --abort
+	rb = rebase
+	rbi = rebase -i
+	rbc = rebase --continue
+	rba = rebase --abort
+	rrr = rerere
+	m = merge
+	ma = merge --abort
+	mt = mergetool
+	a = add
+	d = diff --color-words=.
+	dw = diff --color-words=[a-zA-Z]+
+	dl = diff --color
+	dc = diff --cached --color-words=.
+	dcw = diff --cached --color-words=[a-zA-Z]+
+	dcl = diff --cached --color
+	rpd = remote prune --dry-run
+	rp = remote prune

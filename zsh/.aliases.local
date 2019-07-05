@@ -1,6 +1,7 @@
 # General
 
 alias timestamp="date -d \"today\" +\"%Y%m%d%H%M\""
+alias rig="git rat llll"
 
 # Docker
 alias dc="docker-compose"

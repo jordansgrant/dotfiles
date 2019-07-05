@@ -15,3 +15,4 @@ case $1 in
 esac
 
 rat --cmd "git $*" --mode "$mode"
+#rat --cmd "git $*" --mode 'git.status,git.commits,git.refs,git.misc'
