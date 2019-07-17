@@ -2,6 +2,9 @@
 
 alias timestamp="date -d \"today\" +\"%Y%m%d%H%M\""
 alias rig="git rat llll"
+alias hdmi_right="xrandr --output HDMI-1 --auto --right-of eDP-1"
+alias hdmi-mirror="xrandr --output HDMI-1 --auto --mirror"
+alias hdmi_off="xrandr --output HDMI-1 --off"
 
 # Docker
 alias dc="docker-compose"

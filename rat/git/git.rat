@@ -7,8 +7,8 @@ mode git.status
   bindkey c,o git_filename -- ?!git checkout $git_filename
   bindkey S-d git_filename -- ?!rm $git_filename
 
-  bindkey d,d git_filename git.diff,git.stage -- >git dl $git_filename | diff-highlight
-  bindkey d,a git_filename git.diff,git.unstage -- >git dl --cached $git_filename | diff-highlight
+  bindkey d,d git_filename git.diff,git.stage -- >git dl $git_filename
+  bindkey d,a git_filename git.diff,git.unstage -- >git dl --cached $git_filename
   bindkey v git_filename git.source -- >cat "$git_filename"
   bindkey e git_filename -- !vim $git_filename
 
@@ -45,10 +45,14 @@ end
 mode git.commits
   annotate match git_commit -- git rev-list --all --reflog --abbrev=7 --abbrev-commit
 
-  bindkey s git_commit git.show -- >git show --stat=400 -p $git_commit | diff-highlight
+  bindkey 9 git_commit -- !echo $git_commit | xclip -sel clip
+
+  bindkey s git_commit git.show -- >git show --stat=400 -p $git_commit
+  bindkey t git_commit git.status -- git status
   bindkey l git_commit git.commits -- >git llll $git_commit
 
   bindkey r,b git_commit -- ?!git rebase --interactive $git_commit
+  bindkey r,f git_commit -- ?!git ri -f $git_commit
   bindkey f,u git_commit -- ?!git commit --fixup=$git_commit
   bindkey c,p git_commit -- ?!git cherry-pick $git_commit
   bindkey r,v git_commit -- ?!git revert $git_commit
@@ -65,7 +69,7 @@ mode git.show
   annotate match git_filename -- git ls-tree --name-only -r $git_commit
   annotate external number -- regex '#([0-9]+)' --value-match 1
 
-  bindkey d git_filename git.diff -- >git log -p --follow -1 $git_commit -- "$git_filename" | diff-highlight
+  bindkey d git_filename git.diff -- >git log -p --follow -1 $git_commit -- "$git_filename"
   bindkey l git_filename git.commits -- >git llll --follow $git_commit -- "$git_filename"
   bindkey v git_filename git.source -- >git show $git_commit:"$git_filename"
   bindkey e git_filename -- !vim $git_filename
