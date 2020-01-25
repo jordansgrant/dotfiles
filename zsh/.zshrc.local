@@ -1,31 +1,19 @@
-# return colored prompt values for last returned function
-prompt_return_value() {
-  if (( $1 == 0 )); then
-    echo "%{$fg_bold[green]%}%{✔%G%}"
-  else
-    echo "%{$fg[red]%}%{$?✖%G%}"
-  fi
-}
-
-myprompt() {
-  EXIT=$?
-  PROMPT="%{$fg[cyan]%}%{%B%m%G%} %{$fg[yellow]%}%{%~%b%G%}$(git_super_status) 
- $(prompt_return_value $EXIT)%{$reset_color%}  $ "
-}
-
+# Setup PATH
 export GOPATH="$HOME/Documents/Go/"
-export PATH="$PATH:$GOPATH/bin"
+export PATH="/bin:$PATH:$GOPATH/bin"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/bin"
 export PATH="$PATH:$GOPATH/src/github.com/ericfreese/rat/annotators"
+source /home/jordan/.ghcup/env
 
+# Load Prompt
 autoload -Uz compinit && compinit
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
-
 
 fpath+=($HOME/.zsh/zsh-efgit-prompt)
 autoload -Uz promptinit && promptinit
 prompt efgit
 
+# setup direnv service
 eval "$(direnv hook zsh)"

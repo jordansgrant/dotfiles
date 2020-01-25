@@ -1,8 +1,6 @@
 [user]
 	email = jordan@mojotech.com
 	name = jordansgrant
-[url "git@github.com:"]
-	insteadOf = https://github.com/
 [alias]
 	ss = "status -s"
 	sh = "stash"
@@ -51,3 +49,5 @@
 	frag = cyan bold
 	old = red 9
 	new = green 10
+[color]
+	ui = always
