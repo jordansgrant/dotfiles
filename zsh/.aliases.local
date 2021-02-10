@@ -4,10 +4,12 @@ alias timestamp="date -d \"today\" +\"%Y%m%d%H%M\""
 alias rig="git rat llll"
 alias hdmi_right="xrandr --output HDMI-1 --auto --right-of eDP-1"
 alias hdmi_left="xrandr --output HDMI-1 --auto --left-of eDP-1"
-alias hdmi-mirror="xrandr --output HDMI-1 --auto --same-as eDP-1"
+alias hdmi_mirror="xrandr --output HDMI-1 --auto --same-as eDP-1"
 alias hdmi_off="xrandr --output HDMI-1 --off"
 alias hdmi_rgb_full="xrandr --output HDMI-1 --set \"Broadcast RGB\" \"Full\""
 alias chrome="google-chrome-stable --enable-features=WebUIDarkMode --force-dark-mode"
+alias be="bundle exec"
+
 # Docker
 alias dc="docker-compose"
 alias dcr="docker-compose run"

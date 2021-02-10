@@ -17,6 +17,6 @@ esac
 
 if [[ $( git stash list --grep=$UUID | wc -l ) -ne 0 ]]; then
   git stash pop $(
-    ruby -e "puts /@\{(\d+)\}/.match(\"$( git stash list --grep $UUID )\").captures.first"
+    grep -Po "@\{\K(\d+)(?=\})" <<< $( git stash list --grep $UUID )
   )
 fi

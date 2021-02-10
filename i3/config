@@ -33,7 +33,8 @@ floating_modifier $mod
 focus_follows_mouse no
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+# bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec urxvt
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -178,6 +179,9 @@ bindsym XF86MonBrightnessUp exec true $( pkexec /usr/bin/brillo -equ 1000 -A 5 )
 bindsym XF86MonBrightnessDown exec true $( pkexec /usr/bin/brillo -equ 1000 -U 5 )
 
 exec --no-startup-id dunst -config ~/.config/dunst
+
+# Android Studio
+for_window [title=".*Emulator.*"] floating enable
 
 # status bar
 # exec_always --no-startup-id $HOME/.config/polybar/launch.sh
