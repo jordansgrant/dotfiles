@@ -29,6 +29,9 @@ fi
 . $HOME/.asdf/asdf.sh
 fpath=(${ASDF_DIR}/completions $fpath)
 
+# setup exercism completions
+fpath=($HOME/.config/exercism/exercism_completion.zsh $fpath)
+
 # setup cargo binaries
 export PATH="$PATH:$HOME/.asdf/installs/rust/1.49.0/bin"
 
