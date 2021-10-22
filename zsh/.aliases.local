@@ -13,3 +13,8 @@ alias be="bundle exec"
 # Docker
 alias dc="docker-compose"
 alias dcr="docker-compose run"
+
+# Admin Panel Passwords
+alias ap_prod='heroku run rails runner "puts AdminPanelPassword.current_token" --app thefitbot'
+alias ap_qa='heroku run rails runner "puts AdminPanelPassword.current_token" --app tc-server-qa-alpha'
+alias ap_staging='heroku run rails runner "puts AdminPanelPassword.current_token" --app tc-server-staging'

@@ -1,3 +1,6 @@
+# set GPG TTY
+export GPG_TTY=$(tty)
+
 # Setup PATH
 export GOPATH="$HOME/Documents/Go/"
 export PATH="/bin:$PATH:$GOPATH/bin"
@@ -5,7 +8,6 @@ export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/bin"
 export PATH="$PATH:$GOPATH/src/github.com/ericfreese/rat/annotators"
 export PATH="$PATH:/home/jordan/.asdf/installs/nodejs/8.12.0/.npm/bin"
-source /home/jordan/.ghcup/env
 
 # Navigation
 bindkey "^b" backward-word
@@ -32,8 +34,8 @@ fpath=(${ASDF_DIR}/completions $fpath)
 # setup exercism completions
 fpath=($HOME/.config/exercism/exercism_completion.zsh $fpath)
 
-# setup cargo binaries
-export PATH="$PATH:$HOME/.asdf/installs/rust/1.49.0/bin"
+# add ssh-agent
+[ -z "$SSH_AUTH_SOCK" ] && eval "$(ssh-agent -s)"
 
 # load completions
 autoload -Uz compinit && compinit

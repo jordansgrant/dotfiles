@@ -1,5 +1,5 @@
 [user]
-	email = jordan@mojotech.com
+	email = jordans.grant@gmail.com
 	name = jordansgrant
 [alias]
 	ss = "status -s"
@@ -40,14 +40,9 @@
 	dcl = diff --cached --color
 	rpd = remote prune --dry-run
 	rp = remote prune
-[color "status"]
-	changed = cyan
-	untracked = red
-	added = green
-[color "diff"]
-	meta = blue bold
-	frag = cyan bold
-	old = red 9
-	new = green 10
 [color]
 	ui = always
+[pager]
+	log  = /usr/share/git/diff-highlight/diff-highlight
+	show = /usr/share/git/diff-highlight/diff-highlight
+	diff = /usr/share/git/diff-highlight/diff-highlight
