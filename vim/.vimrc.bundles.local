@@ -2,19 +2,15 @@
 " Start my plugins
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
-" Plug 'Valloric/YouCompleteMe'
 Plug 'danro/rename.vim'
 Plug 'mxw/vim-jsx'
 Plug 'vim-utils/vim-line'
-Plug 'digitaltoad/vim-pug'
 Plug 'leafgarland/typescript-vim'
 Plug 'iloginow/vim-stylus'
 Plug 'ElmCast/elm-vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'rust-lang/rust.vim'
-Plug 'petrbroz/vim-glsl'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'uarun/vim-protobuf'
 Plug 'vim-crystal/vim-crystal'
 
 nmap <silent> gd <Plug>(coc-definition)
@@ -25,13 +21,3 @@ nmap <silent> gr <Plug>(coc-references)
 map <C-n> :NERDTreeToggle<CR>
 
 let g:jsx_ext_required = 0
-
-" let g:ycm_semantic_triggers = {
-"      \ 'elm' : ['.'],
-"      \}
-" 
-" let g:ycm_filter_diagnostics = {
-"   \ "javascript": {
-"   \      "regex": [ "ts file", "'=' expected.", "';' expected."],
-"   \    }
-"   \ }

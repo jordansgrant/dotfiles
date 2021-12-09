@@ -1,6 +1,7 @@
 set formatoptions-=cro
 
 colorscheme desert
+highlight ColorColumn ctermbg=7
 
 hi xmlEndTag ctermfg=05
 
