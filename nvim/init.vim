@@ -15,7 +15,7 @@ set shiftround
 set expandtab
 
 set signcolumn=yes:2
-set relativenumber
+" set relativenumber
 set number
 set termguicolors
 set undofile
@@ -53,17 +53,23 @@ nmap <leader>vr :source ~/.config/nvim/init.vim<cr>
 nmap <leader>k :nohlsearch<CR>
 nmap <leader>Q :bufdo bdelete<cr>
 
+" " Copy to clipboard
+vnoremap  <leader>y  "+y
+nnoremap  <leader>Y  "+yg_
+nnoremap  <leader>y  "+y
+
+" " Paste from clipboard
+nnoremap <leader>p "+p
+nnoremap <leader>P "+P
+vnoremap <leader>p "+p
+vnoremap <leader>P "+P
+
 " Allow gf to open non-existent files
 map gf :edit <cfile><cr>
 
 " Reselect visual selection after indenting
 vnoremap < <gv
 vnoremap > >gv
-
-" Maintain the cursor position when yanking a visual selection
-" http://ddrscott.github.io/blog/2016/yank-without-jank/
-vnoremap y myy`y
-vnoremap Y myY`y
 
 " When text is wrapped, move by terminal rows, not lines, unless a count is provided
 noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
@@ -84,8 +90,8 @@ nmap <leader>x :!xdg-open %<cr><cr>
 imap jj <esc>
 
 " Easy insertion of a trailing ; or , from insert mode
-imap ;; <Esc>A;<Esc>
-imap ,, <Esc>A,<Esc>
+" imap <leader>; <Esc>A;<Esc>
+" imap <leader>, <Esc>A,<Esc>
 
 cmap w!! %!sudo tee > /dev/null %
 

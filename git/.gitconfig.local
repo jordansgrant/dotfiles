@@ -43,6 +43,6 @@
 [color]
 	ui = always
 [pager]
-	log  = /usr/share/git/diff-highlight/diff-highlight
-	show = /usr/share/git/diff-highlight/diff-highlight
-	diff = /usr/share/git/diff-highlight/diff-highlight
+	log  = /usr/share/doc/git/contrib/diff-highlight/diff-highlight
+	show = /usr/share/doc/git/contrib/diff-highlight/diff-highlight
+	diff = /usr/share/doc/git/contrib/diff-highlight/diff-highlight
