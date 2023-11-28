@@ -3,6 +3,7 @@
 stow -t $HOME environment
 stow -t $HOME git
 stow -t $HOME tmux
+stow -t $HOME tig
 stow -t $HOME vim
 stow -t $HOME xorg
 stow -t $HOME zsh

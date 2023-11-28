@@ -1,0 +1,4 @@
+bind generic 9 +@sh -c "echo -n $(git rev-parse --short %(commit)) | xclip -sel clip && echo Copied %(commit) to clipboard"
+bind generic S :source ~/.tigrc
+bind main F ?git ri -f %(commit)
+bind main A !git cao -n
