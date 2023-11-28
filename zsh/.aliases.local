@@ -1,20 +1,10 @@
 # General
-
 alias timestamp="date -d \"today\" +\"%Y%m%d%H%M\""
-alias rig="git rat llll"
-alias hdmi_right="xrandr --output HDMI-1 --auto --right-of eDP-1"
-alias hdmi_left="xrandr --output HDMI-1 --auto --left-of eDP-1"
-alias hdmi_mirror="xrandr --output HDMI-1 --auto --same-as eDP-1"
-alias hdmi_off="xrandr --output HDMI-1 --off"
-alias hdmi_rgb_full="xrandr --output HDMI-1 --set \"Broadcast RGB\" \"Full\""
-alias chrome="google-chrome-stable --enable-features=WebUIDarkMode --force-dark-mode"
-alias be="bundle exec"
+
+# Launch rails console in heroku with sandbox mode
+alias hc_sandbox="heroku run 'rails c --sandbox'"
 
 # Docker
-alias dc="docker-compose"
-alias dcr="docker-compose run"
-
-# Admin Panel Passwords
-alias ap_prod='heroku run rails runner "puts AdminPanelPassword.current_token" --app thefitbot'
-alias ap_qa='heroku run rails runner "puts AdminPanelPassword.current_token" --app tc-server-qa-alpha'
-alias ap_staging='heroku run rails runner "puts AdminPanelPassword.current_token" --app tc-server-staging'
+alias dc="docker compose"
+alias dcr="docker compose run"
+alias dce="docker compose exec"
