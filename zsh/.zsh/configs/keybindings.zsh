@@ -1,0 +1,1 @@
+/home/jordan/dotfiles/zsh/configs/keybindings.zsh

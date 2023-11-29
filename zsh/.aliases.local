@@ -1,5 +1,8 @@
 # General
 alias timestamp="date -d \"today\" +\"%Y%m%d%H%M\""
+alias ll="ls -pla"
+alias e="$EDITOR"
+alias v="$VISUAL"
 
 # Launch rails console in heroku with sandbox mode
 alias hc_sandbox="heroku run 'rails c --sandbox'"

@@ -15,6 +15,7 @@ bindkey "^b" backward-word
 bindkey "^w" forward-word
 bindkey "^B" beginning-of-line
 bindkey "^W" end-of-line
+bindkey -s "^f" "tmux-nav\n"
 
 if [ "$TERM" = "xterm" ]; then
   export TERM=xterm-256color

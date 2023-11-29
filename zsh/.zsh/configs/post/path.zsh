@@ -1,0 +1,1 @@
+/home/jordan/dotfiles/zsh/configs/post/path.zsh
