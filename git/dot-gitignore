@@ -15,3 +15,8 @@ log/*.log
 rerun.txt
 tmp/**/*
 /tags
+.tern-project
+package-lock.json
+yarn-error.log
+.tool-versions
+.env

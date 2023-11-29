@@ -1,25 +1,39 @@
 #!/usr/bin/env bash
 
+handle_window() {
+  local selected=$1
+  local selected_name=$(basename "$selected" | tr . _)
+
+  echo $selected
+  if ! tmux list-windows -a -F "#W" | grep -qs $selected_name; then
+    tmux neww -n $selected_name -c $selected
+  else
+    tmux switch-client -t "$2:$selected_name"
+  fi
+}
+
 tmux_running=$(pgrep tmux)
 if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
   tmux new-session -s "config" -n "dotfiles" -c "~/dotfiles"
   exit 0
 fi
 
+current_session=$(tmux display-message -p "#S")
+
 if [[ $# -eq 1 ]]; then
-  selected=$1
+  handle_window $1 $current_session
+fi
+
+if [[ "$current_session" = "work" ]]; then
+  selected=$(find ~/work -mindepth 1 -maxdepth 1 -type d | fzf)
+elif [[ "$current_session" = "personal" ]]; then
+  selected=$(find ~/personal/projects -mindepth 1 -maxdepth 1 -type d | fzf)
 else
-  selected=$(find ~/work ~/personal/projects ~ -mindepth 1 -maxdepth 1 -type d | fzf)
+  selected=$(find ~ -mindepth 1 -maxdepth 1 -type d | fzf)
 fi
 
 if [[ -z $selected ]]; then
   exit 0
 fi
 
-selected_name=$(basename "$selected" | tr . _)
-
-if ! tmux has-session -t=$selected_name 2> /dev/null; then
-  tmux new-session -ds $selected_name -c $selected
-fi
-
-tmux switch-client -t $selected_name
+handle_window "$selected" "$current_session"

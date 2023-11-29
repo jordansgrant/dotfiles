@@ -7,7 +7,7 @@ fi
 
 read -p "Entry query: " query
 
-if echo "$languages" | grep -qs "$selected"; then
+if cat ~/.tmux-cht-languages | grep -qs "$selected"; then
   CHT_PATH="$selected/$(echo "$query" | tr ' ' '+')"
 else
   CHT_PATH="$selected~$query"
