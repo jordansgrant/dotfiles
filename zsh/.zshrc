@@ -34,6 +34,9 @@ _load_settings() {
 }
 _load_settings "$HOME/.zsh/configs"
 
+export EDITOR=nvim
+export VISUAL=nvim
+
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
