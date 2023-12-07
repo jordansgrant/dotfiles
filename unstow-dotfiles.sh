@@ -9,5 +9,5 @@ stow -D -t $HOME xorg
 stow -D -t $HOME zsh
 stow -D -t $HOME scripts
 stow -D -t $HOME kitty
-stow -D -t $HOME nvim
+stow -D -t $HOME nvim_new
 stow -D -t $HOME systemd
