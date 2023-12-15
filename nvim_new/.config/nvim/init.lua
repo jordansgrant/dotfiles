@@ -313,7 +313,6 @@ vim.o.nojoinspaces = true
 vim.o.splitright = true
 vim.o.confirm = true
 vim.o.exrc = true
-vim.o.backup = true
 
 -- [[ Basic Keymaps ]]
 
