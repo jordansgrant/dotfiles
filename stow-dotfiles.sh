@@ -10,4 +10,5 @@ stow -t $HOME zsh
 stow -t $HOME scripts
 stow -t $HOME kitty
 stow -t $HOME nvim_new
+stow -t $HOME i3
 stow -t $HOME systemd
