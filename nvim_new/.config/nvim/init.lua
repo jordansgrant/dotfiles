@@ -76,7 +76,17 @@ require('lazy').setup({
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
   'tpope/vim-surround',
+  'danro/rename.vim',
+  'github/copilot.vim',
 
+  {
+    "ThePrimeagen/harpoon",
+    branch = "harpoon2",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-lua/popup.nvim",
+    },
+  },
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
   {
@@ -308,14 +318,18 @@ vim.o.number = true
 vim.o.spell = true
 vim.o.title = true
 vim.o.list = true
+vim.o.wildmode = "longest:full,full"
 vim.o.listchars = "tab:▸ ,trail:·"
 vim.o.nojoinspaces = true
 vim.o.splitright = true
 vim.o.confirm = true
 vim.o.exrc = true
 
--- [[ Basic Keymaps ]]
+-- Github Copliot settings
+vim.g.copilot_no_tab_map = true;
+vim.keymap.set('i', "<C-J>", 'copilot#Accept("<CR>")', { expr = true, replace_keycodes = true })
 
+-- [[ Basic Keymaps ]]
 vim.keymap.set('n', '<leader>k', ':nohlsearch<CR>')
 vim.keymap.set('n', '<leader>x', ':!xdg-open %<cr><cr>')
 vim.keymap.set('n', 'n', 'nzzzv')
@@ -336,6 +350,22 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnos
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
+-- Harpoon
+local harpoon = require("harpoon")
+
+harpoon:setup()
+
+vim.keymap.set("n", "<C-a>", function() harpoon:list():append() end)
+vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+vim.keymap.set("n", "<leader>1", function() harpoon:list():select(1) end)
+vim.keymap.set("n", "<leader>2", function() harpoon:list():select(2) end)
+vim.keymap.set("n", "<leader>3", function() harpoon:list():select(3) end)
+vim.keymap.set("n", "<leader>4", function() harpoon:list():select(4) end)
+
+-- Toggle previous & next buffers stored within Harpoon list
+vim.keymap.set("n", "<C-h>", function() harpoon:list():prev() end)
+vim.keymap.set("n", "<C-l>", function() harpoon:list():next() end)
+
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
@@ -350,6 +380,11 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
 require('telescope').setup {
+  pickers = {
+    find_files = {
+      hidden = true,
+    },
+  },
   defaults = {
     mappings = {
       i = {
@@ -486,10 +521,10 @@ vim.defer_fn(function()
       swap = {
         enable = true,
         swap_next = {
-          ['<leader>a'] = '@parameter.inner',
+          ['<leader>p'] = '@parameter.inner',
         },
         swap_previous = {
-          ['<leader>A'] = '@parameter.inner',
+          ['<leader>P'] = '@parameter.inner',
         },
       },
     },
@@ -665,6 +700,14 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
+
+-- Auto-create parent directories (except for URIs "://").
+vim.cmd [[
+  augroup ExpandWrite
+    autocmd!
+    autocmd BufWritePre,FileWritePre * if @% !~# '\(://\)' | call mkdir(expand('<afile>:p:h'), 'p') | endif
+  augroup end
+]]
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
