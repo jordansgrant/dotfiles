@@ -33,6 +33,10 @@ cmp.setup {
         fallback()
       end
     end, { 'i', 's' }),
+    ['<C-j>'] = cmp.mapping(function(fallback)
+      vim.api.nvim_feedkeys(vim.fn['copilot#Accept'](vim.api.nvim_replace_termcodes('<Tab>', true, true, true)), 'n',
+        true)
+    end),
     ['<S-Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()

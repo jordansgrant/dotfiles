@@ -44,3 +44,5 @@ export VISUAL=nvim
 [[ -f ~/.aliases ]] && source ~/.aliases
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+eval $(opam env)

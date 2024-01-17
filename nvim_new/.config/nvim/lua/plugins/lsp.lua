@@ -58,13 +58,15 @@ require('mason-lspconfig').setup()
 --  If you want to override the default filetypes that your language server will attach to you can
 --  define the property 'filetypes' to the map in question.
 local servers = {
-  -- clangd = {},
-  -- gopls = {},
-  -- pyright = {},
-  -- rust_analyzer = {},
-  -- tsserver = {},
-  -- html = { filetypes = { 'html', 'twig', 'hbs'} },
-
+  clangd = {},
+  rust_analyzer = {},
+  tsserver = {},
+  html = { filetypes = { 'html', 'twig', 'hbs', 'erb' } },
+  solargraph = {},
+  rubocop = {},
+  ocamllsp = {
+    filetypes = { "ocaml", "ocaml.menhir", "ocaml.interface", "ocaml.ocamllex", "reason", "dune" },
+  },
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
@@ -85,13 +87,40 @@ mason_lspconfig.setup {
   ensure_installed = vim.tbl_keys(servers),
 }
 
+local lsp_config = require('lspconfig')
+
 mason_lspconfig.setup_handlers {
   function(server_name)
-    require('lspconfig')[server_name].setup {
+    lsp_config[server_name].setup {
       capabilities = capabilities,
       on_attach = on_attach,
       settings = servers[server_name],
       filetypes = (servers[server_name] or {}).filetypes,
     }
   end,
+}
+
+local configs = require 'lspconfig.configs'
+
+vim.filetype.add({
+  extension = {
+    roc = 'roc',
+  },
+})
+
+if not configs.roc then
+  configs.roc = {
+    default_config = {
+      cmd = { 'roc_lang_server' },
+      root_dir = lsp_config.util.root_pattern('.git'),
+      filetypes = { 'roc' },
+    },
+  }
+end
+
+lsp_config.roc.setup {
+  cmd = { 'roc_lang_server' },
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { 'roc' },
 }

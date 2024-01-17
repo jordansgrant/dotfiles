@@ -78,7 +78,13 @@ vim.o.exrc = true
 
 -- Github Copliot settings
 vim.g.copilot_no_tab_map = true;
-vim.keymap.set('i', "<C-J>", 'copilot#Accept("<CR>")', { expr = true, replace_keycodes = true })
+vim.keymap.set('i', "<C-J>", 'copilot#Accept()', { expr = true, replace_keycodes = true })
+vim.keymap.set(
+  "i",
+  "<Plug>(vimrc:copilot-dummy-map)",
+  'copilot#Accept("")',
+  { silent = true, expr = true, desc = "Copilot dummy accept" }
+)
 
 -- [[ Basic Keymaps ]]
 vim.keymap.set('n', '<leader>k', ':nohlsearch<CR>')
