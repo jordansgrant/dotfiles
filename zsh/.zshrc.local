@@ -25,8 +25,9 @@ fi
 
 # setup asdf
 
-. $HOME/.asdf/asdf.sh
-fpath=(${ASDF_DIR}/completions $fpath)
+export ASDF_DATA_DIR="/home/jordan/.asdf"
+export PATH="${ASDF_DIR}/shims:${PATH}"
+
 
 # setup exercism completions
 fpath=($HOME/.config/exercism/exercism_completion.zsh $fpath)

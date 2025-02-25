@@ -7,6 +7,11 @@ alias scheme="rlwrap scheme"
 
 # Launch rails console in heroku with sandbox mode
 alias hc_sandbox="heroku run 'rails c --sandbox'"
+alias reset_core_staging='heroku run "yes | DATABASE_CLEANER_ALLOW_PRODUCTION=true DATABASE_CLEANER_ALLOW_REMOTE_DATABASE_URL=true rake devtools:demo:setup" --app tapkat-core-staging'
+
+# Git
+alias g_last_week='git log --since="2 weeks ago Monday" --until="1 week ago Friday" --oneline'
+alias g_this_week='git log --since="last Monday" --oneline'
 
 # Docker
 alias dc="docker compose"
