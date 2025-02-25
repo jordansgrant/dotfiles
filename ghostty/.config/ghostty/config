@@ -1,0 +1,9 @@
+theme = Dracula+
+font-family = "Fira Code Nerd Font"
+font-size = 12
+background = "#282A36"
+foreground = "#F8F8F2"
+
+window-decoration = false
+window-padding-x = 6
+window-padding-y = 6
